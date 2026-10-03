@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# WorkBuddy IDE config
+.workbuddy/
+
+# Environment variables (MUST be kept secret)
+.env
+
+# Database exports
+sql/
+
+# Logs
+*.log
+npm-debug.log*
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build output
+dist/
+build/
+
+# Test reports
+coverage/

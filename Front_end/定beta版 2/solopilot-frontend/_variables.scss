@@ -1,0 +1,96 @@
+$color-brand-primary: #6366F1;
+$color-brand-primary-hover: #4F46E5;
+$color-brand-primary-light: #EEF2FF;
+$color-brand-accent: #10B981;
+$color-brand-accent-hover: #059669;
+$color-brand-accent-light: #D1FAE5;
+
+$color-gray-900: #0F172A;
+$color-gray-800: #1E293B;
+$color-gray-700: #334155;
+$color-gray-600: #475569;
+$color-gray-500: #64748B;
+$color-gray-400: #94A3B8;
+$color-gray-300: #CBD5E1;
+$color-gray-200: #E2E8F0;
+$color-gray-100: #F1F5F9;
+$color-gray-50: #F8FAFC;
+
+$color-success: #10B981;
+$color-success-light: #D1FAE5;
+$color-success-dark: #059669;
+$color-warning: #F59E0B;
+$color-warning-light: #FEF3C7;
+$color-warning-dark: #D97706;
+$color-error: #EF4444;
+$color-error-light: #FEE2E2;
+$color-error-dark: #DC2626;
+$color-info: #3B82F6;
+$color-info-light: #DBEAFE;
+
+$space-xs: 4px;
+$space-sm: 8px;
+$space-md: 16px;
+$space-lg: 24px;
+$space-xl: 32px;
+$space-2xl: 48px;
+$space-3xl: 64px;
+$space-4xl: 96px;
+
+$text-xs: 12px;
+$text-sm: 13px;
+$text-base: 15px;
+$text-md: 17px;
+$text-lg: 20px;
+$text-xl: 24px;
+$text-2xl: 30px;
+$text-3xl: 36px;
+$text-4xl: 48px;
+
+$font-family-display: "Noto Sans SC", "PingFang SC", -apple-system, sans-serif;
+$font-family-body: "Noto Sans SC", "PingFang SC", -apple-system, sans-serif;
+$font-family-mono: "JetBrains Mono", "Fira Code", monospace;
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+
+$radius-sm: 6px;
+$radius-md: 10px;
+$radius-lg: 16px;
+$radius-xl: 24px;
+$radius-2xl: 32px;
+$radius-full: 9999px;
+
+$shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+$shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+$shadow-md: 0 4px 6px rgba(15, 23, 42, 0.05), 0 2px 4px rgba(15, 23, 42, 0.04);
+$shadow-lg: 0 10px 15px rgba(15, 23, 42, 0.08), 0 4px 6px rgba(15, 23, 42, 0.04);
+$shadow-xl: 0 20px 25px rgba(15, 23, 42, 0.1), 0 10px 10px rgba(15, 23, 42, 0.04);
+$shadow-2xl: 0 25px 50px rgba(15, 23, 42, 0.15);
+$shadow-inner: inset 0 2px 4px rgba(15, 23, 42, 0.06);
+$shadow-glow-primary: 0 0 20px rgba(59, 130, 246, 0.3);
+$shadow-glow-accent: 0 0 20px rgba(245, 158, 11, 0.3);
+
+$z-content: 0;
+$z-sticky: 10;
+$z-header: 20;
+$z-drawer: 30;
+$z-modal-overlay: 40;
+$z-modal: 50;
+$z-tooltip: 60;
+$z-toast: 70;
+
+$breakpoint-mobile: 375px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-wide: 1440px;
+
+$transition-fast: 120ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-normal: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-entrance: 500ms cubic-bezier(0.16, 1, 0.3, 1);
+$transition-complex: 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
+$transition-bounce: 700ms cubic-bezier(0.68, -0.55, 0.265, 1.55);

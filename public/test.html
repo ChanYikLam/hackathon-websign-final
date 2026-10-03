@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SoloPilot API 测试页面</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: #0f0f23;
+        color: #e6edf3;
+        padding: 20px;
+      }
+      h1 {
+        text-align: center;
+        color: #58a6ff;
+        margin-bottom: 20px;
+      }
+      h2 {
+        color: #f0883e;
+        font-size: 18px;
+        margin: 25px 0 12px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #30363d;
+      }
+      .section {
+        background: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 10px;
+        padding: 16px 20px;
+        margin-bottom: 16px;
+      }
+      .btn-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      button {
+        background: #238636;
+        color: #fff;
+        border: none;
+        padding: 8px 14px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 13px;
+        transition: background 0.2s;
+      }
+      button:hover {
+        background: #2ea043;
+      }
+      button:active {
+        background: #238636;
+      }
+      .btn-secondary {
+        background: #1f6feb;
+      }
+      .btn-secondary:hover {
+        background: #388bfd;
+      }
+      .btn-danger {
+        background: #da3633;
+      }
+      .btn-danger:hover {
+        background: #f85149;
+      }
+      .btn-warning {
+        background: #9e6a03;
+      }
+      .btn-warning:hover {
+        background: #bb8009;
+      }
+      .input-group {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 12px;
+        align-items: center;
+      }
+      input {
+        background: #0d1117;
+        border: 1px solid #30363d;
+        color: #e6edf3;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 14px;
+      }
+      input:focus {
+        outline: none;
+        border-color: #58a6ff;
+      }
+      label {
+        color: #8b949e;
+        font-size: 14px;
+      }
+      #output {
+        background: #0d1117;
+        border: 1px solid #30363d;
+        border-radius: 8px;
+        padding: 12px;
+        min-height: 200px;
+        max-height: 400px;
+        overflow-y: auto;
+        font-family: "Fira Code", "Consolas", monospace;
+        font-size: 13px;
+        line-height: 1.6;
+        white-space: pre-wrap;
+      }
+      .token-display {
+        background: #1a1a2e;
+        border: 1px solid #30363d;
+        border-radius: 6px;
+        padding: 10px 14px;
+        font-family: monospace;
+        font-size: 12px;
+        word-break: break-all;
+        color: #7ee787;
+        margin-top: 12px;
+      }
+      .token-label {
+        color: #8b949e;
+        font-size: 12px;
+        margin-bottom: 4px;
+      }
+      .info-text {
+        color: #8b949e;
+        font-size: 12px;
+        margin: 8px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🚀 SoloPilot API 测试页面</h1>
+
+    <!-- 用户认证 -->
+    <div class="section">
+      <h2>🔐 用户认证</h2>
+      <div class="input-group">
+        <label>用户名:</label>
+        <input
+          type="text"
+          id="username"
+          placeholder="输入用户名"
+          value="testuser"
+        />
+        <label>密码:</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="输入密码"
+          value="password123"
+        />
+      </div>
+      <div class="btn-group">
+        <button data-action="register">注册</button>
+        <button data-action="login" class="btn-secondary">登录</button>
+        <button data-action="get-profile">获取资料</button>
+        <button data-action="update-profile">更新资料</button>
+        <button data-action="update-avatar">更新头像</button>
+        <button data-action="refresh-token" class="btn-warning">
+          刷新Token
+        </button>
+      </div>
+      <div id="tokenDisplay"></div>
+    </div>
+
+    <!-- 健康检查 -->
+    <div class="section">
+      <h2>❤️ 健康检查与配置</h2>
+      <div class="btn-group">
+        <button data-action="health">健康检查</button>
+        <button data-action="public-config">公开配置</button>
+      </div>
+    </div>
+
+    <!-- 信息采集 -->
+    <div class="section">
+      <h2>📋 信息采集（7步）</h2>
+      <p class="info-text">💡 点击"提交全部7步"可一次性完成全部信息采集</p>
+      <div class="btn-group">
+        <button data-action="submit-info" class="btn-secondary">
+          提交全部7步
+        </button>
+        <button data-action="get-progress">查询进度</button>
+        <button data-action="mark-complete">标记完成</button>
+        <button data-action="get-answers">获取所有答案</button>
+      </div>
+    </div>
+
+    <!-- MBTI 测评 -->
+    <div class="section">
+      <h2>🧠 MBTI 性格测评</h2>
+      <p class="info-text">💡 提交测评后会随机生成93道题的答案</p>
+      <div class="btn-group">
+        <button data-action="submit-mbti" class="btn-secondary">
+          提交93题测评
+        </button>
+        <button data-action="get-mbti">查看结果</button>
+        <button data-action="reset-mbti" class="btn-warning">重置测评</button>
+      </div>
+    </div>
+
+    <!-- AI 智能分析 -->
+    <div class="section">
+      <h2>🤖 AI 智能分析</h2>
+      <div class="btn-group">
+        <button data-action="trigger-analysis" class="btn-secondary">
+          触发分析
+        </button>
+        <button data-action="analysis-status">查看状态</button>
+        <button data-action="analysis-result">查看结果</button>
+      </div>
+    </div>
+
+    <!-- AI 团队配置 -->
+    <div class="section">
+      <h2>👥 AI 团队配置</h2>
+      <p class="info-text">💡 先完成 MBTI 测评后，再配置 AI 团队</p>
+      <div class="btn-group">
+        <button data-action="submit-team" class="btn-secondary">
+          提交10题
+        </button>
+        <button data-action="get-team">查看结果</button>
+        <button data-action="get-role-1">角色详情(1)</button>
+        <button data-action="get-role-2">角色详情(2)</button>
+        <button data-action="get-role-3">角色详情(3)</button>
+      </div>
+    </div>
+
+    <!-- 反馈与复盘 -->
+    <div class="section">
+      <h2>💬 反馈与复盘</h2>
+      <div class="btn-group">
+        <button data-action="submit-feedback" class="btn-secondary">
+          提交反馈
+        </button>
+        <button data-action="get-feedback">获取反馈列表</button>
+        <button data-action="create-review" class="btn-secondary">
+          创建复盘
+        </button>
+        <button data-action="get-reviews">复盘列表</button>
+        <button data-action="get-review">单条复盘</button>
+        <button data-action="update-review">更新复盘</button>
+        <button data-action="delete-review" class="btn-danger">删除复盘</button>
+      </div>
+    </div>
+
+    <!-- 合规指引 -->
+    <div class="section">
+      <h2>📜 合规指引</h2>
+      <div class="btn-group">
+        <button data-action="compliance">合规指引</button>
+      </div>
+    </div>
+
+    <!-- 系统配置 -->
+    <div class="section">
+      <h2>⚙️ 系统配置管理</h2>
+      <div class="btn-group">
+        <button data-action="get-configs" class="btn-secondary">
+          全量配置
+        </button>
+        <button data-action="create-config">创建配置</button>
+        <button data-action="get-config">单个配置</button>
+        <button data-action="update-config">更新配置</button>
+        <button data-action="get-config-category">分类列表</button>
+        <button data-action="delete-config" class="btn-danger">删除配置</button>
+      </div>
+    </div>
+
+    <!-- 输出区域 -->
+    <div class="section">
+      <h2>📤 响应输出</h2>
+      <div id="output">点击左侧按钮开始测试，响应结果将显示在这里...</div>
+    </div>
+
+    <!-- 引用外部 JS 文件 -->
+    <script src="/test.js"></script>
+  </body>
+</html>
